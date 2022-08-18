@@ -1,7 +1,6 @@
 package com.courseBooking.models;
 
 import com.courseBooking.Star;
-
 import javax.persistence.*;
 
 @Entity
