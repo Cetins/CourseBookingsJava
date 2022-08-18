@@ -1,6 +1,5 @@
 package com.courseBooking.components;
 
-import com.courseBooking.Star;
 import com.courseBooking.models.Booking;
 import com.courseBooking.models.Course;
 import com.courseBooking.models.Customer;
@@ -28,16 +27,16 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Course javascript = new Course("JavaScript", "Glasgow", Star.FOUR);
+        Course javascript = new Course("JavaScript", "Glasgow", 4);
         courseRepository.save(javascript);
 
-        Course python = new Course("Python", "Edinburgh", Star.THREE);
+        Course python = new Course("Python", "Edinburgh", 3);
         courseRepository.save(python);
 
-        Course react = new Course("React", "Edinburgh", Star.FIVE);
+        Course react = new Course("React", "Edinburgh", 5);
         courseRepository.save(react);
 
-        Course java = new Course("Java", "Glasgow", Star.FIVE);
+        Course java = new Course("Java", "Glasgow", 5);
         courseRepository.save(java);
 
         Customer charlie = new Customer("Charlie", "Edinburgh", 35);

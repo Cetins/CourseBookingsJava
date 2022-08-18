@@ -1,6 +1,5 @@
 package com.courseBooking.models;
 
-import com.courseBooking.Star;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
@@ -21,17 +20,17 @@ public class Course {
     @Column(name = "town")
     private String town;
 
-    @Column(name = "star")
-    private Star star;
+    @Column(name = "rating")
+    private Integer rating;
 
     @JsonBackReference
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Course(String name, String town, Star star) {
+    public Course(String name, String town, Integer rating) {
         this.name = name;
         this.town = town;
-        this.star = star;
+        this.rating = rating;
         this.bookings = new ArrayList<>();
     }
 
@@ -62,12 +61,12 @@ public class Course {
         this.town = town;
     }
 
-    public Star getStar() {
-        return star;
+    public Integer getRating() {
+        return rating;
     }
 
-    public void setStar(Star star) {
-        this.star = star;
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public List<Booking> getBookings() {
