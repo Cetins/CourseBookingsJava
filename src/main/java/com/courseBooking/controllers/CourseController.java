@@ -26,4 +26,9 @@ public class CourseController {
 
         return new ResponseEntity(courseRepository.findAll(), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/courses/{id}")
+    public ResponseEntity getCourse(@PathVariable Long id) {
+        return new ResponseEntity(courseRepository.findById(id), HttpStatus.OK);
+    }
 }
