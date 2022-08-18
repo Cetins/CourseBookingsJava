@@ -18,10 +18,14 @@ public class CourseController {
 
     @GetMapping(value = "/courses")
     public ResponseEntity<Course> getAllCoursesAndFilters(
-            @RequestParam(required = false, name = "rating") Integer rating
+            @RequestParam(required = false, name = "rating") Integer rating,
+            @RequestParam(required = false, name = "customer") String customer
     ) {
         if (rating != null) {
             return new ResponseEntity(courseRepository.findByRating(rating), HttpStatus.OK);
+        }
+        if (customer != null) {
+            return new ResponseEntity(courseRepository.findByBookingsCustomerNameIgnoreCase(customer), HttpStatus.OK);
         }
 
         return new ResponseEntity(courseRepository.findAll(), HttpStatus.OK);
